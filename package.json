@@ -1,0 +1,28 @@
+{
+    "name": "settrade-python-sdk-snippet",
+    "displayName": "settrade-python-sdk-snippet",
+    "description": "Settrade OpenAPI Python SDK Code Snippet Generator",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.52.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "python",
+                "path": "./snippets/python/investor/common.json"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/python/investor/derivatives.json"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/python/investor/equity.json"
+            }
+        ]
+    }
+}

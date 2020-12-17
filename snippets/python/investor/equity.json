@@ -1,0 +1,58 @@
+{
+    "Get equity account info": {
+        "prefix": "stt-investor-equity-account",
+        "body": [
+            "equity_account = investor.Equity(account_no=\"${1:account_no}\")",
+            "account_info = equity_account.get_account_info()"
+        ],
+        "description": "Get investor equity account info"
+    },
+    "Place equity order": {
+        "prefix": "stt-investor-equity-place-order",
+        "body": [
+            "equity_account.place_order(",
+            "  symbol=\"${1:symbol}\",",
+            "  price=${2:price},",
+            "  volume=${3:volume},",
+            "  side=\"${4:BUY|SELL}\",",
+            "  pin=\"${6:pin}\"",
+            ")"
+        ],
+        "description": "Place investor equity order"
+    },
+    "List equity orders": {
+        "prefix": "stt-investor-equity-list-orders",
+        "body": [
+            "equity_account.get_orders()"
+        ],
+        "description": "List investor equity orders"
+    },
+    "Cancel equity order": {
+        "prefix": "stt-investor-equity-cancel-order",
+        "body": [
+            "equity_account.cancel_order(order_no=${1:order_no}, pin=\"${2:pin}\")"
+        ],
+        "description": "Cancel investor equity order"
+    },
+    "Change equity orders": {
+        "prefix": "stt-investor-equity-change-order",
+        "body": [
+            "equity_account.change_order(order_no=${1:order_no}, pin=\"${2:pin}\", new_price=${3:price}, new_volume=${4:volume})"
+        ],
+        "description": "Change investor equity order"
+    },
+    "Get equity order": {
+        "prefix": "stt-investor-equity-get-order",
+        "body": [
+            "equity_account.get_order(order_no=${1:order_no})"
+        ],
+        "description": "Get investor equity order"
+    },
+    "Get equity portfolio": {
+        "prefix": "stt-investor-equity-portfolio",
+        "body": [
+            "equity_account.get_portfolio()"
+        ],
+        "description": "Get investor equity portfolio"
+    }
+}

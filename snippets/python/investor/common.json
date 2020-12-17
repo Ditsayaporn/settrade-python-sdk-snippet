@@ -1,0 +1,16 @@
+{
+    "Import investor module": {
+        "prefix": "stt-investor-import",
+        "body": [
+            "from settrade.openapi import Investor"
+        ],
+        "description": "Import Settrade OpenAPI SDK Investor Module"
+    },
+    "Login investor": {
+        "prefix": "stt-investor-login",
+        "body": [
+            "investor = Investor(app_id=\"${1:your_app_id}\", app_secret=\"${2:your_app_secret}\", broker_id=\"${3:broker_id}\", app_code=\"${4:app_code}\")"
+        ],
+        "description": "Login to Settrade OpenAPI as an investor"
+    }
+}

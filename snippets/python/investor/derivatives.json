@@ -1,0 +1,59 @@
+{
+    "Get derivatives account info": {
+        "prefix": "stt-investor-deriv-account",
+        "body": [
+            "deriv_account = investor.Derivatives(account_no=\"${1:account_no}\")",
+            "account_info = deriv_account.get_account_info()"
+        ],
+        "description": "Get investor derivatives account info"
+    },
+    "Place derivatives order": {
+        "prefix": "stt-investor-deriv-place-order",
+        "body": [
+            "deriv_account.place_order(",
+            "  symbol=\"${1:symbol}\",",
+            "  price=${2:price},",
+            "  volume=${3:volume},",
+            "  side=\"${4:LONG|SHORT}\",",
+            "  position=\"${5:OPEN|CLOSE|AUTO}\",",
+            "  pin=\"${6:pin}\"",
+            ")"
+        ],
+        "description": "Place investor derivatives order"
+    },
+    "List derivatives orders": {
+        "prefix": "stt-investor-deriv-list-orders",
+        "body": [
+            "deriv_account.get_orders()"
+        ],
+        "description": "List investor derivatives orders"
+    },
+    "Cancel derivatives order": {
+        "prefix": "stt-investor-deriv-cancel-order",
+        "body": [
+            "deriv_account.cancel_order(order_no=${1:order_no}, pin=\"${2:pin}\")"
+        ],
+        "description": "Cancel investor derivatives order"
+    },
+    "Change derivatives orders": {
+        "prefix": "stt-investor-deriv-change-order",
+        "body": [
+            "deriv_account.change_order(order_no=${1:order_no}, pin=\"${2:pin}\", new_price=${3:price}, new_volume=${4:volume})"
+        ],
+        "description": "Change investor derivatives order"
+    },
+    "Get derivatives order": {
+        "prefix": "stt-investor-deriv-get-order",
+        "body": [
+            "deriv_account.get_order(order_no=${1:order_no})"
+        ],
+        "description": "Get investor derivatives order"
+    },
+    "Get derivatives portfolio": {
+        "prefix": "stt-investor-deriv-portfolio",
+        "body": [
+            "deriv_account.get_portfolio()"
+        ],
+        "description": "Get investor derivatives portfolio"
+    }
+}
