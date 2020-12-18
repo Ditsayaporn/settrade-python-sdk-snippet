@@ -2,7 +2,7 @@
     "name": "settrade-python-sdk-snippet",
     "displayName": "settrade-python-sdk-snippet",
     "description": "Settrade OpenAPI Python SDK Code Snippet Generator",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "theerapatcha",
     "repository": {
         "type": "git",
