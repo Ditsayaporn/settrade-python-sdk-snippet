@@ -54,5 +54,25 @@
             "equity_account.get_portfolio()"
         ],
         "description": "Get investor equity portfolio"
+    },
+    "Subscribe for equity order": {
+        "prefix": "stt-investor-equity-subscribe-order",
+        "body": [
+            "mqtt = investor.MQTTWebsocket()",
+            "",
+            "def on_order_changed(result, subscriber):",
+            "  symbol = result['data']['symbol']",
+            "  status = result['data']['status']",
+            "  volume = result['data']['volume']",
+            "  balance_volume = result['data']['balance_volume']",
+            "  matched_volume = result['data']['matched_volume']",
+            "  cancelled_volume = result['data']['cancelled_volume']",
+            "  ",
+            "  subscriber.stop() ## Stop the subscriber",
+            "",
+            "sub = mqtt.subscribe_equity_order(\"${1:order_no}\", on_message=on_order_changed)",
+            "sub.start()"
+        ],
+        "description": "Subscribe for realtime equity order status"
     }
 }

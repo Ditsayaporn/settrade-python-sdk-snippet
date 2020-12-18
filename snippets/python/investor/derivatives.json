@@ -55,5 +55,25 @@
             "deriv_account.get_portfolio()"
         ],
         "description": "Get investor derivatives portfolio"
+    },
+    "Subscribe for derivatives order": {
+        "prefix": "stt-investor-deriv-subscribe-order",
+        "body": [
+            "mqtt = investor.MQTTWebsocket()",
+            "",
+            "def on_order_changed(result, subscriber):",
+            "  series_id = result['data']['series_id']",
+            "  status = result['data']['status']",
+            "  volume = result['data]'['volume']",
+            "  balance_volume = result['data']['balance_volume']",
+            "  matched_volume = result['data']['matched_volume']",
+            "  cancelled_volume = result['data']['cancelled_volume']",
+            "  ",
+            "  subscriber.stop() ## Stop the subscriber",
+            "",
+            "sub = mqtt.subscribe_derivatives_order(\"${1:order_no}\", on_message=on_order_changed)",
+            "sub.start()"
+        ],
+        "description": "Subscribe for realtime derivatives order status"
     }
 }

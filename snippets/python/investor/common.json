@@ -9,8 +9,50 @@
     "Login investor": {
         "prefix": "stt-investor-login",
         "body": [
-            "investor = Investor(app_id=\"${1:your_app_id}\", app_secret=\"${2:your_app_secret}\", broker_id=\"${3:broker_id}\", app_code=\"${4:app_code}\")"
+            "investor = Investor(app_id=\"${1:app_id}\", app_secret=\"${2:app_secret}\", broker_id=\"${3:broker_id}\", app_code=\"${4:app_code}\")"
         ],
-        "description": "Login to Settrade OpenAPI as an investor"
+        "description": "Login to Settrade OpenAPI"
+    },
+    "Subscribe for symbol price": {
+        "prefix": "stt-investor-subscribe-price",
+        "body": [
+            "mqtt = investor.MQTTWebsocket()",
+            "",
+            "def on_price_changed(result, subscriber):",
+            "  last = result['data']['last']",
+            "  high = result['data']['high']",
+            "  low = result['data']['low']",
+            "  total_volume = result['data']['total_volume']",
+            "  ",
+            "  subscriber.stop() ## Stop the subscriber",
+            "",
+            "sub = mqtt.subscribe_price_info(\"${1:symbol}\", on_message=on_price_changed)",
+            "sub.start()"
+        ],
+        "description": "Subscribe for realtime price information of a specific symbol"
+    },
+    "Subscribe for symbol bids and offers": {
+        "prefix": "stt-investor-subscribe-bids-offers",
+        "body": [
+            "mqtt = investor.MQTTWebsocket()",
+            "",
+            "def on_bids_offers_changed(result, subscriber):",
+            "  bid_price1 = result['data']['bid_price1']",
+            "  bid_price2 = result['data']['bid_price2']",
+            "  bid_price3 = result['data']['bid_price3']",
+            "  bid_price4 = result['data']['bid_price4']",
+            "  bid_price5 = result['data']['bid_price5']",
+            "  ask_price1 = result['data']['ask_price1']",
+            "  ask_price2 = result['data']['ask_price2']",
+            "  ask_price3 = result['data']['ask_price3']",
+            "  ask_price4 = result['data']['ask_price4']",
+            "  ask_price5 = result['data']['ask_price5']",
+            "  ",
+            "  subscriber.stop() ## Stop the subscriber",
+            "",
+            "sub = mqtt.subscribe_bid_offer(\"${1:symbol}\", on_message=on_bids_offers_changed)",
+            "sub.start()"
+        ],
+        "description": "Subscribe for realtime bids and offers information of a specific symbol"
     }
 }
