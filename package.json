@@ -6,7 +6,7 @@
     "publisher": "theerapatcha",
     "repository": {
         "type": "git",
-        "url": "git@github.com:theerapatcha/settrade-python-sdk-snippet.git"
+        "url": "https://github.com/theerapatcha/settrade-python-sdk-snippet.git"
     },
     "engines": {
         "vscode": "^1.30.0"
